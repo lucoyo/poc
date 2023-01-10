@@ -8,6 +8,7 @@
     ]
   },
   "devDependencies": {
+    "@redwoodjs/auth-custom-setup": "4.0.0-rc.437",
     "@redwoodjs/core": "^4.0.0-rc.437"
   },
   "eslintConfig": {

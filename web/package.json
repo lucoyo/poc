@@ -13,6 +13,7 @@
     ]
   },
   "dependencies": {
+    "@redwoodjs/auth": "4.0.0-rc.437+92c99756d",
     "@redwoodjs/forms": "^4.0.0-rc.437",
     "@redwoodjs/router": "^4.0.0-rc.437",
     "@redwoodjs/web": "^4.0.0-rc.437",
