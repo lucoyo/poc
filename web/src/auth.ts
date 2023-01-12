@@ -1,4 +1,5 @@
 import { createAuthentication } from '@redwoodjs/auth'
+import { Platform } from '@roq/nodejs';
 
 // If you're integrating with an auth service provider you should delete this interface.
 // Instead you should import the type from their auth client sdk.
@@ -29,25 +30,12 @@ export interface ValidateResetTokenResponse {
 }
 
 // Replace this with the auth service provider client sdk
-const client = {
-  login: () => ({
-    id: 'unique-user-id',
-    email: 'email@example.com',
-    roles: [],
-  }),
-  signup: () => ({
-    id: 'unique-user-id',
-    email: 'email@example.com',
-    roles: [],
-  }),
-  logout: () => {},
-  getToken: () => 'super-secret-short-lived-token',
-  getUserMetadata: () => ({
-    id: 'unique-user-id',
-    email: 'email@example.com',
-    roles: [],
-  }),
-}
+const client = new Platform({
+  environmentId: process.env.REDWOOD_ENV_ROQ_ENVIRONMENTID,
+  apiKey: process.env.REDWOOD_ENV_ROQ_APIKEY,
+  jwtSecret: process.env.REDWOOD_ENV_ROQ_JWTSECRET,
+  host: process.env.REDWOOD_ENV_ROQ_HOST,
+});
 
 function createAuth() {
   const authImplementation = createAuthImplementation(client)
